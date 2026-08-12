@@ -33,3 +33,53 @@ for i := 0; i <= n; i++ {
 ```
 ## Tarefa para trazer na próxima aula
 Fazer um algoritmo na linguagem que preferir para adicionar o numero de 1 a 1 milhão pelo inicio e pelo final e medir o tempo dos dois. Analisar se o tempo é diferente e porquê é diferente
+### Adicionando atrás:
+```golang
+package main
+
+import "fmt"
+import "time"
+
+func main() {
+  var vetor []int
+
+  inicio := time.Now()
+
+  for i := 0; i < 1000000; i++ {
+    vetor = append(vetor, i)
+  }
+
+  fim := time.Since(inicio)
+
+  tempo_formated := fmt.Sprintf("%f segundos", fim.Seconds())
+  fmt.Println(tempo_formated)
+
+  
+}
+```
+
+
+### Adicionando na frente:
+```golang
+package main
+
+import "fmt"
+import "time"
+
+func main() {
+  var vetor []int
+
+  inicio := time.Now()
+
+  for i := 0; i < 1000000; i++ {
+    vetor = append([]int{i}, vetor...)
+  }
+
+  fim := time.Since(inicio)
+
+  tempo_formated := fmt.Sprintf("%f segundos", fim.Seconds())
+  fmt.Println(tempo_formated)
+
+  
+}
+```
