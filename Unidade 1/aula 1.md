@@ -83,3 +83,44 @@ func main() {
   
 }
 ```
+### Algoritmo de adicionando atrás e na frente por meio de funções
+```golang
+package main
+import "fmt"
+import "time"
+
+func calculaTempoAddFim() {
+  var vetorFim []int
+
+  inicio := time.Now()
+
+  for i := 0; i < 1000000; i++ {
+    vetorFim = append(vetorFim, i)
+  }
+
+  fim := time.Since(inicio)
+  tempo_formatado := fmt.Sprintf("Tempo adicioando 1.000.000 no fim: %f Segundos", fim.Seconds())
+
+  fmt.Println(tempo_formatado)
+}
+
+func calculaTempoAddInicio() {
+  var vetor []int
+
+  inicio := time.Now()
+
+  for i := 0; i < 100000; i++ {
+    vetor = append([]int{i}, vetor...)
+  }
+
+  fim := time.Since(inicio)
+  tempo_segundos := fmt.Sprintf("Tempo adicionando 100.000 no inicio: %f Segundos", fim.Seconds())
+  fmt.Println(tempo_segundos)
+}
+
+func main() {
+  calculaTempoAddFim()
+  calculaTempoAddInicio()
+
+}
+```
