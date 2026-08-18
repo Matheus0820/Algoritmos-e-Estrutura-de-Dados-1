@@ -81,3 +81,31 @@ Não importa o que ta multiplicando o $n$, a complexidade de algoritmos assim se
 - $T = n^2 + 3906 \cdot n + 102$
 
 Não importa os outros argumentos multiplicando ou somando, o que importa é o dominante, que nesse caso é o $n^2$ que cresce mais rápido. Desse modo, todos possuem complexidade $O(n^2)$
+
+## Notação Big-Oh (Pior Caso)
+### Limite Assintótico Superior
+<p align="center">
+  <img src="https://joaoarthurbm.github.io/eda/posts/analise-assintotica/bigo.png" alt="Análise assintótica">
+</p>
+
+**Definição:** Uma função qualquer $f(n)$ será limitada superiormente por uma função qualquer $g(n)$ se existirem constantes positivas $c$ e $n_0$, tais que $f(n) \leq c \cdot g(n)$ para todo ($\forall$) $n \geq n_0$.
+
+Ou seja, devemos achar um $c$ e $n_0$ para que a inequação mostrada na definição sempre seja real para qualquer $n$.
+
+**Exemplo:** Seja $g(n) = c \cdot n^2$ e $f(n) = 5n^2 + 7$, então teremos:
+
+$c = 6 \Rightarrow 5n^2 + 7 \leq 6n^2$
+
+$\hookrightarrow n_0 = 3 \Rightarrow 52 \leq 54$
+
+Portanto a complexidade, analisando formalmente, de $f(n)$ é $O(n)$. Ou seja: $f(n) = 5n^2 + 7 \in O(n^2)$
+
+## Notação Big-Ômega (Melhor Caso)
+### Limite Assintótico Inferior
+<p align="center">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2AHKXHWcOnp8ohpsxwFwfLvmF9bfL943mPQfeF9J82yR7DZc6SlUdDo-bWtq2EtdZayQIICgLMYV8DYAxlgBlKWM-uOmJq6OEdqEShlemuJ6Ir4QrO_1-GS1lfNmYl_DqovannPlHrq4/s1600/apagar.JPG" alt="Imagem">
+</p>
+
+**Definição:** $f(n) \in \Omega(g(n))$ se $c \cdot g(n) \leq f(n), \forall n \geq n_0$
+
+## Notação Big-Theta
