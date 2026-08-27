@@ -92,11 +92,15 @@ func (list *arraylist) removeOnIndex(index int) (int, error) {
 		valRemoved := list.v[index]
 		moveVectorLeft(index)
 		list.inserted--
-		
+
 		return valRemoved, nil
 	}
 
 	return -1, errors.New("Index out of bounds")
+}
+
+func (list *arraylist) size() int {
+	return list.inserted
 }
 
 func main() {
