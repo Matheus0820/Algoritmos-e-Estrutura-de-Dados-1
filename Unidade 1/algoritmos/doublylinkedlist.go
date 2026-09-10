@@ -40,3 +40,42 @@ func (list *DoublyLinkedList) add(val int) {
   list.inserted++
   
 }
+
+
+func (list *DoublyLinkedList) addOnIndex(val int, index int) error {
+  if index >= 0 && index <= list.inserted {
+    newNode := &node2p(val: val)
+
+    if list.inserted == 0 {
+      list.head = newNode
+      list.tail = newNode
+      
+    } else {
+      if index == 0 {
+        newNode.next = list.head
+        list.head.prev = newNode
+        list.head = newNode
+        
+      } else {
+        aux := list.head
+        for cont := 0; cont < index; cont++ {
+          aux = aux.next;
+        }
+        newNode.prev = aux
+        newNode.next = aux.next
+        aux.next = newNode
+        if newNode.next != nil {
+          newNode.next.prev = newNode
+        }
+        
+      }
+      if index == list.inserted {
+        list.tail = newNode
+      }
+    }
+    return nil
+    
+  } else {
+    return errors.New("Index out of bound")
+  }
+}
