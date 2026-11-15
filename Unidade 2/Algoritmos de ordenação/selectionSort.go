@@ -1,6 +1,3 @@
-// Online Go compiler (editor)
-// Write and run Go online using this editor.
-
 package main
 import "fmt"
 
